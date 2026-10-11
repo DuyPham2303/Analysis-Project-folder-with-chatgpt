@@ -1,0 +1,16 @@
+#ifndef IOHWAB_PORT_CFG_H
+#define IOHWAB_PORT_CFG_H
+
+#include "Dio_PinMode_Cfg.h"
+
+typedef Dio_ChannelType IoHwAb_PortChannelType;
+
+#define IOHWAB_PORT_SPI_MOSI_CHANNEL ((IoHwAb_PortChannelType)DIO_CHANNEL_SPI2_MOSI)
+#define IOHWAB_PORT_SPI_MISO_CHANNEL ((IoHwAb_PortChannelType)DIO_CHANNEL_SPI2_MISO)
+#define IOHWAB_PORT_SPI_SCK_CHANNEL ((IoHwAb_PortChannelType)DIO_CHANNEL_SPI2_SCK)
+#define IOHWAB_PORT_SPI_NSS_CHANNEL ((IoHwAb_PortChannelType)DIO_CHANNEL_SPI2_NSS)
+
+#define IOHWAB_PORT_LED_CHANNEL_C13 ((IoHwAb_PortChannelType)DIO_CHANNEL_C13)
+#define IOHWAB_PORT_SPI_NSS_INITIAL_LEVEL STD_HIGH
+
+#endif

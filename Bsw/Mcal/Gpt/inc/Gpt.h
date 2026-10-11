@@ -1,0 +1,39 @@
+/**
+ * @file Gpt.h
+ * @brief Giao diện trình điều khiển bộ định thời đa mục đích MCAL.
+ * @details Khai báo các kiểu dữ liệu TIM, cấu hình kênh, callback thông báo
+ *          và các dịch vụ dùng để điều khiển các kênh timer của MCU.
+ * @req Mô-đun TIM của AUTOSAR MCAL; phần triển khai phụ thuộc vào MCU.
+ */
+#ifndef GPT_H
+#define GPT_H
+
+#include "Gpt_Cfg.h"
+
+/**
+ * @brief  Khởi tạo module TIM.
+ * @param  ConfigPtr: Con trỏ trỏ tới bảng cấu hình phần cứng Timer.
+ */
+Std_ReturnType Gpt_Init(const Gpt_ConfigType_s *ConfigPtr);
+
+/**
+ * @brief  Bắt đầu chạy Timer với chu kỳ đếm (tick) xác định.
+ * @param  HwId: Kênh Timer xử lý chức năng Gpt
+ * @param  Value: giá trị đếm tràn trước khi phát sinh 1 update event.
+ */
+void Gpt_StartTimer(Gpt_GroupId_Type HwId, Gpt_PeriodValue Value);
+
+/**
+ * @brief  Dừng hoạt động của Timer.
+ * @param  HwId: Kênh Timer cần dừng.
+ */
+void Gpt_StopTimer(Gpt_GroupId_Type HwId);
+
+/**
+ * @brief Lấy giá trị thời gian đã trôi qua kể từ khi Timer bắt đầu chạy.
+ * @param HwId: Kênh Timer cần lấy giá trị.
+ * @return Giá trị thời gian đã trôi qua (tick count).s
+ */
+
+Gpt_PeriodValue Gpt_GetTimeElapsed(Gpt_GroupId_Type HwId);
+#endif /* GPT_H */
